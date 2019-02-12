@@ -9,7 +9,7 @@ abstract class DebugDrawerSection {
 class DebugDrawer extends Drawer {
   final List<DebugDrawerSection> sections;
 
-  DebugDrawer(this.sections);
+  DebugDrawer(this.sections): super();
 
   @override
   Widget build(BuildContext context) {
