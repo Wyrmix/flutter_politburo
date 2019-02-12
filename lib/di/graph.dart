@@ -9,7 +9,7 @@ abstract class ObjectGraph {
 
   Container container = Container();
 
-  DebugDrawer get debugDrawer => container<DebugDrawer>();
+  DebugDrawer get debugDrawer => ObjectGraph.graph.container<DebugDrawer>();
 
   Future<Container> build(Env config);
 
