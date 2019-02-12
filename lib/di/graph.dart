@@ -79,26 +79,28 @@ class DefaultObjectGraph extends ObjectGraph {
       return ObjectGraph.graph.container;
     } else {
       ObjectGraph.graph = DefaultObjectGraph(env);
-      ObjectGraph.graph.container = Container();
-      ObjectGraph.graph.container.reset();
+      ObjectGraph.graph.container = this.container;
+
+      var con = ObjectGraph.graph.container;
+      con.reset();
       switch (env) {
         case Env.dev:
-          await registerCommonDependencies(container);
-          await registerDevDependencies(container);
-          await registerProdDependencies(container);
+          await registerCommonDependencies(con);
+          await registerDevDependencies(con);
+          await registerProdDependencies(con);
           break;
         case Env.prod:
-          await registerCommonDependencies(container);
-          await registerProdDependencies(container);
+          await registerCommonDependencies(con);
+          await registerProdDependencies(con);
           break;
         case Env.test:
-          registerTestDependencies(container);
+          registerTestDependencies(con);
           break;
         case Env.mock:
-          registerMockDependencies(container);
+          registerMockDependencies(con);
           break;
       }
-      return container;
+      return con;
     }
   }
 }
