@@ -10,7 +10,6 @@ import 'package:sample/data/product_service.dart';
 import 'package:sample/ui/routes/sample_router.dart';
 
 class SampleGraph extends DefaultObjectGraph {
-  SampleGraph(Env env) : super(env);
 
   @override
   Future<Container> registerCommonDependencies(Container container) async {

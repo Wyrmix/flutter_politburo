@@ -3,13 +3,9 @@ import 'package:flutter_politburo/di/env.dart';
 import 'package:flutter_politburo/ui/component/debug_drawer.dart';
 
 abstract class ObjectGraph {
-  final Env env;
+  Env env;
 
   static ObjectGraph graph;
-
-  ObjectGraph.build(this.env);
-
-  ObjectGraph(this.env);
 
   Container container = Container();
 
@@ -51,7 +47,6 @@ abstract class ObjectGraph {
 /// -- [registerTestDependencies]
 ///
 class DefaultObjectGraph extends ObjectGraph {
-  DefaultObjectGraph(Env env) : super(env);
 
   @override
   Future<Container> registerDevDependencies(Container container) async =>
@@ -78,8 +73,9 @@ class DefaultObjectGraph extends ObjectGraph {
     if (env == ObjectGraph.graph?.env) {
       return ObjectGraph.graph.container;
     } else {
-      ObjectGraph.graph = DefaultObjectGraph(env);
+      ObjectGraph.graph = DefaultObjectGraph();
       ObjectGraph.graph.container = this.container;
+      ObjectGraph.graph.env = env;
 
       var con = ObjectGraph.graph.container;
       con.reset();
