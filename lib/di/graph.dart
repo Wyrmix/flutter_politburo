@@ -1,0 +1,104 @@
+import 'package:dioc/dioc.dart';
+import 'package:flutter_politburo/di/env.dart';
+import 'package:flutter_politburo/ui/component/debug_drawer.dart';
+
+abstract class ObjectGraph {
+  final Env env;
+
+  static ObjectGraph graph;
+
+  ObjectGraph.build(this.env);
+
+  ObjectGraph(this.env);
+
+  Container container = Container();
+
+  DebugDrawer get debugDrawer => container<DebugDrawer>();
+
+  Future<Container> build(Env config);
+
+  Future<Container> registerCommonDependencies(Container container);
+
+  Future<Container> registerDevDependencies(Container container);
+
+  Future<Container> registerProdDependencies(Container container);
+
+  Future<Container> registerMockDependencies(Container container);
+
+  Future<Container> registerTestDependencies(Container container);
+}
+
+/// Base class implementing [ObjectGraph] with sensible defaults per environment.
+///
+/// Subclasses should override [registerCommonDependencies], [registerDevDependencies],
+/// [registerProdDependencies], [registerMockDependencies], [registerTestDependencies]
+/// to bind app specific dependencies into the graph.
+/// Please note that this class does NOT bind anything into the graph itself.
+///
+/// [build] creates a cached instance of the graph for a given [Env] and binds
+/// dependencies by chaining the calls as follows:
+///
+/// - [Env.dev]
+/// -- [registerCommonDependencies]
+/// -- [registerDevDependencies]
+/// -- [registerProdDependencies]
+/// - [Env.prod]
+/// -- [registerCommonDependencies]
+/// -- [registerProdDependencies]
+/// - [Env.mock]
+/// -- [registerMockDependencies]
+/// - [Env.test]
+/// -- [registerTestDependencies]
+///
+class DefaultObjectGraph extends ObjectGraph {
+  DefaultObjectGraph(Env env) : super(env);
+
+  @override
+  Future<Container> registerDevDependencies(Container container) async =>
+      container;
+
+  @override
+  Future<Container> registerCommonDependencies(Container container) async =>
+      container;
+
+  @override
+  Future<Container> registerTestDependencies(Container container) async =>
+      container;
+
+  @override
+  Future<Container> registerMockDependencies(Container container) async =>
+      container;
+
+  @override
+  Future<Container> registerProdDependencies(Container container) async =>
+      container;
+
+  @override
+  Future<Container> build(Env env) async {
+    if (env == ObjectGraph.graph?.env) {
+      return ObjectGraph.graph.container;
+    } else {
+      ObjectGraph.graph = DefaultObjectGraph(env);
+      ObjectGraph.graph.container = Container();
+      ObjectGraph.graph.container.reset();
+      switch (env) {
+        case Env.dev:
+          await registerCommonDependencies(container);
+          await registerDevDependencies(container);
+          await registerProdDependencies(container);
+          break;
+        case Env.prod:
+          await registerCommonDependencies(container);
+          await registerProdDependencies(container);
+          break;
+        case Env.test:
+          registerTestDependencies(container);
+          break;
+        case Env.mock:
+          registerMockDependencies(container);
+          break;
+      }
+      return container;
+    }
+  }
+}

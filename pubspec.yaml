@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   dioc: ^0.1.4
+  fluro: ^1.4.0
+  fimber: ^0.1.8
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart' hide Container;
 import 'package:dioc/dioc.dart';
 
+/// Widget that provides its children with a [Container] to locate all of its dependencies
 class ContainerProvider extends InheritedWidget {
   final Container container;
 

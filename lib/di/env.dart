@@ -1,6 +1,7 @@
-enum Configuration {
-  development,
-  production,
+/// Different environments an app can commonly be run in
+enum Env {
+  dev,
+  prod,
   mock,
   test
 }

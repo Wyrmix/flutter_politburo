@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// Placeholder to use for a screen that we want to have in the router but don't
+/// have designs or a working implementation yet
 class IncubatingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

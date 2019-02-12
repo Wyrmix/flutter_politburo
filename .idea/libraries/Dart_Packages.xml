@@ -44,6 +44,27 @@
             </list>
           </value>
         </entry>
+        <entry key="faker">
+          <value>
+            <list>
+              <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/faker-1.0.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="fimber">
+          <value>
+            <list>
+              <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/fimber-0.1.10/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="fluro">
+          <value>
+            <list>
+              <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/fluro-1.4.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter">
           <value>
             <list>
@@ -158,6 +179,9 @@
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.14.11/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-0.1.2/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/dioc-0.1.4/lib" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/faker-1.0.0/lib" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/fimber-0.1.10/lib" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/fluro-1.4.0/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.3+1/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.1.6/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.6.2/lib" />
