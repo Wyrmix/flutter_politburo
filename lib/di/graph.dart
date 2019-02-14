@@ -1,4 +1,5 @@
 import 'package:dioc/dioc.dart';
+import 'package:flutter/material.dart' hide Container;
 import 'package:flutter_politburo/di/env.dart';
 import 'package:flutter_politburo/ui/component/debug_drawer.dart';
 
@@ -9,7 +10,7 @@ abstract class ObjectGraph {
 
   Container container = Container();
 
-  DebugDrawer get debugDrawer => ObjectGraph.graph.container<DebugDrawer>();
+  Drawer get debugDrawer => Drawer(child: ObjectGraph.graph.container<DebugDrawer>(),);
 
   Future<Container> build(Env config);
 
