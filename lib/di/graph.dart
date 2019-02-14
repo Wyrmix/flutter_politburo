@@ -10,7 +10,10 @@ abstract class ObjectGraph {
 
   Container container = Container();
 
-  Drawer get debugDrawer => Drawer(child: ObjectGraph.graph.container<DebugDrawer>(),);
+  Drawer get debugDrawer {
+    final drawer = ObjectGraph.graph.container<DebugDrawer>();
+    return drawer != null ? Drawer(child: drawer) : null;
+  }
 
   Future<Container> build(Env config);
 
