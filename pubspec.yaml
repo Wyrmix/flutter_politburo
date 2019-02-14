@@ -14,6 +14,7 @@ dependencies:
   fluro: ^1.4.0
   fimber: ^0.1.8
   scaffold_factory: ^0.7.9+1
+  card_settings: ^1.2.5
 
 dev_dependencies:
   flutter_test:

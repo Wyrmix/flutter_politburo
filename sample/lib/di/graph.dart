@@ -7,12 +7,16 @@ import 'package:sample/data/db/product_service.dart';
 import 'package:sample/data/mock/product_service.dart';
 import 'package:sample/data/network/product_service.dart';
 import 'package:sample/data/product_service.dart';
+import 'package:sample/ui/profile/profile_vm.dart';
 import 'package:sample/ui/routes/sample_router.dart';
 
 class SampleGraph extends DefaultObjectGraph {
-
   @override
   Future<Container> registerCommonDependencies(Container container) async {
+    container
+      ..register<ProfileRepository>((c) => ProfileRepository())
+      ..register<ProfileViewModel>(
+          (c) => ProfileViewModel(container<ProfileRepository>()));
     return container;
   }
 

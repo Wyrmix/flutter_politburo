@@ -1,6 +1,32 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_politburo/di/graph.dart';
 import 'package:scaffold_factory/scaffold_factory.dart';
+import 'package:event_bus/event_bus.dart';
+
+//class DebugScaffoldFactory extends ScaffoldFactory {
+//  factory DebugScaffoldFactory(
+//      {@required GlobalKey<ScaffoldState> scaffoldKey,
+//        @required MaterialPalette materialPalette,
+//        dynamic event}) =>
+//      DebugScaffoldFactory._internal(
+//          scaffoldKey: scaffoldKey,
+//          colorPalette: materialPalette,
+//          event: event);
+//
+//  StreamSubscription _eventBusSubscription;
+//
+//  DebugScaffoldFactory._internal(
+//      {@required scaffoldKey,
+//        @required colorPalette,
+//        dynamic event}) {
+//    _eventBusSubscription = eventBus.on<dynamic>().listen((event) async {
+//      if (event != null)
+//        this.scaffoldFactoryBehavior.onEventBusMessageReceived(event);
+//    });
+//  }
+//}
 
 class DebugDrawerScaffoldFactory implements ScaffoldFactory {
   ScaffoldFactory _factory;
@@ -17,7 +43,7 @@ class DebugDrawerScaffoldFactory implements ScaffoldFactory {
 
   @override
   Widget build(Widget bodyWidget) {
-    if (appBarVisibility && nestedAppBarVisibility) {
+    if (this.appBarVisibility && this.nestedAppBarVisibility) {
       throw Exception(
           "Both app bar widget and nested app bar widget are being used simultaneously. \n" +
               "Make app bar widget or nested app bar widget invisible for resolving this issue.");
@@ -25,8 +51,8 @@ class DebugDrawerScaffoldFactory implements ScaffoldFactory {
 
     /// Creates a visual scaffold for material design widgets.
     return Scaffold(
-      key: scaffoldKey,
-      primary: primary,
+      key: this.scaffoldKey,
+      primary: this.primary,
       appBar: this.appBarVisibility ? this.appBar : null,
       floatingActionButtonLocation: fabLocation,
       bottomNavigationBar:
@@ -38,18 +64,18 @@ class DebugDrawerScaffoldFactory implements ScaffoldFactory {
           : null,
       body: Container(
         decoration: BoxDecoration(
-          color: backgroundType == BackgroundType.solidColor
-              ? backgroundColor ?? colorPalette.primaryColor
+          color: this.backgroundType == BackgroundType.solidColor
+              ? this.backgroundColor ?? this.colorPalette.primaryColor
               : null,
           gradient: backgroundType == BackgroundType.gradient
               ? LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: gradientBackgroundColors,
+                  colors: this.gradientBackgroundColors,
                 )
               : null,
         ),
-        child: nestedAppBarVisibility ? this.nestedAppBar : bodyWidget,
+        child: this.nestedAppBarVisibility ? this.nestedAppBar : bodyWidget,
       ),
     );
   }
@@ -217,59 +243,116 @@ class DebugDrawerScaffoldFactory implements ScaffoldFactory {
           nestedAppBar: nestedAppBar);
 
   @override
-  Widget drawer;
+  Widget get drawer => _factory.drawer;
 
   @override
-  bool drawerVisibility;
+  set drawer(Widget drawer) => _factory.drawer = drawer;
 
   @override
-  Widget bottomNavigationBar;
+  bool get drawerVisibility => _factory.drawerVisibility;
 
   @override
-  bool bottomNavigationBarVisibility;
+  set drawerVisibility(bool visible) => _factory.drawerVisibility = visible;
 
   @override
-  FloatingActionButtonLocation fabLocation;
+  Widget get bottomNavigationBar => _factory.bottomNavigationBar;
 
   @override
-  Widget floatingActionButton;
+  set bottomNavigationBar(Widget bottomNav) => _factory.bottomNavigationBar = bottomNav;
 
   @override
-  bool floatingActionButtonVisibility;
+  bool get bottomNavigationBarVisibility => _factory.bottomNavigationBarVisibility;
 
   @override
-  NestedScrollView nestedAppBar;
+  set bottomNavigationBarVisibility(bool visible) => _factory.bottomNavigationBarVisibility = visible;
 
   @override
-  bool nestedAppBarVisibility;
+  FloatingActionButtonLocation get fabLocation => _factory.fabLocation;
 
   @override
-  AppBar appBar;
+  set fabLocation(FloatingActionButtonLocation location) => _factory.fabLocation = location;
 
   @override
-  bool appBarVisibility;
+  Widget get floatingActionButton => _factory.floatingActionButton;
 
   @override
-  TextTheme textTheme;
+  set floatingActionButton(Widget  fab) => _factory.floatingActionButton = fab;
 
   @override
-  Color backgroundColor;
+  bool get floatingActionButtonVisibility => _factory.floatingActionButtonVisibility;
 
   @override
-  List<Color> gradientBackgroundColors;
+  set floatingActionButtonVisibility(bool visible) => _factory.floatingActionButtonVisibility = visible;
 
   @override
-  BackgroundType backgroundType;
+  NestedScrollView get nestedAppBar => _factory.nestedAppBar;
 
   @override
-  MaterialPalette colorPalette;
+  set nestedAppBar(NestedScrollView nestedAppBar) => _factory.nestedAppBar = nestedAppBar;
 
   @override
-  ScaffoldFactoryBehaviors scaffoldFactoryBehavior;
+  bool get nestedAppBarVisibility => _factory.nestedAppBarVisibility;
 
   @override
-  bool primary;
+  set nestedAppBarVisibility(bool visible) => _factory.nestedAppBarVisibility = visible;
 
   @override
-  GlobalKey<ScaffoldState> scaffoldKey;
+  AppBar get appBar => _factory.appBar;
+
+  @override
+  set appBar(AppBar appBar) => _factory.appBar = appBar;
+
+  @override
+  bool get appBarVisibility => _factory.appBarVisibility;
+
+  @override
+  set appBarVisibility(bool visible) => _factory.appBarVisibility = visible;
+
+  @override
+  TextTheme get textTheme => _factory.textTheme;
+
+  @override
+  set textTheme(TextTheme theme) => _factory.textTheme = theme;
+
+  @override
+  Color get backgroundColor => _factory.backgroundColor;
+
+  @override
+  set backgroundColor(Color bg) => _factory.backgroundColor = bg;
+
+  @override
+  List<Color> get gradientBackgroundColors => _factory.gradientBackgroundColors;
+
+  @override
+  set gradientBackgroundColors(List<Color> colors) => _factory.gradientBackgroundColors = colors;
+
+  @override
+  BackgroundType get backgroundType => _factory.backgroundType;
+
+  @override
+  set backgroundType(BackgroundType type) => _factory.backgroundType = type;
+
+  @override
+  MaterialPalette get colorPalette => _factory.colorPalette;
+
+  @override
+  set colorPalette(MaterialPalette palette) => _factory.colorPalette = palette;
+
+  @override
+  ScaffoldFactoryBehaviors get scaffoldFactoryBehavior => _factory.scaffoldFactoryBehavior;
+
+  @override
+  set scaffoldFactoryBehavior(ScaffoldFactoryBehaviors behavior) => _factory.scaffoldFactoryBehavior = behavior;
+
+  @override
+  bool get primary => _factory.primary;
+
+  @override
+  set primary(bool primary) => _factory.primary = primary;
+
+  @override
+  GlobalKey<ScaffoldState> get scaffoldKey => _factory.scaffoldKey;
+
+  @override
+  set scaffoldKey(GlobalKey<ScaffoldState> key) => _factory.scaffoldKey = key;
 }

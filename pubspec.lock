@@ -15,6 +15,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  card_settings:
+    dependency: "direct main"
+    description:
+      name: card_settings
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.5"
   charcode:
     dependency: transitive
     description:
@@ -62,6 +69,20 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_colorpicker:
+    dependency: transitive
+    description:
+      name: flutter_colorpicker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.7"
+  flutter_masked_text:
+    dependency: transitive
+    description:
+      name: flutter_masked_text
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.0"
   flutter_statusbarcolor:
     dependency: transitive
     description:
@@ -74,6 +95,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.15.7"
   matcher:
     dependency: transitive
     description:
