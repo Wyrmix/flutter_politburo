@@ -13,9 +13,11 @@ class ContainerProvider extends InheritedWidget {
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) => true;
 
-  static Container of(BuildContext context) => (context.inheritFromWidgetOfExactType(ContainerProvider) as ContainerProvider).container;
+  static Container of(BuildContext context) =>
+      (context.inheritFromWidgetOfExactType(ContainerProvider) as ContainerProvider).container;
 }
 
+/// mixin on [State] that allows an easy way to access the container from an [InheritedWidget]
 mixin ContainerConsumer<T extends StatefulWidget> on State<T> {
   Container get container {
     return ContainerProvider.of(super.context);

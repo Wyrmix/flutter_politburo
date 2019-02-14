@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="11f6dfa3-daaa-441f-9f53-c1dcd5068d5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/component/di_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/component/di_widget.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -101,8 +100,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/ui/component/di_widget.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+            <state relative-caret-position="483">
+              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -127,6 +126,11 @@
         <option value="Dart File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>context</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -374,7 +378,7 @@
       <workItem from="1549970272571" duration="1648000" />
       <workItem from="1550050152023" duration="1861000" />
       <workItem from="1550112523916" duration="958000" />
-      <workItem from="1550122846411" duration="1330000" />
+      <workItem from="1550122846411" duration="2512000" />
     </task>
     <task id="LOCAL-00001" summary="Added incubating feature screen&#10;&#10;- added sample project to play with widgets from this library">
       <created>1549821394277</created>
@@ -439,7 +443,21 @@
       <option name="project" value="LOCAL" />
       <updated>1550112856544</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added ContainerConsumer mixin">
+      <created>1550124237985</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1550124237985</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added generic type to ContainerConsumer">
+      <created>1550124465842</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1550124465842</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -448,7 +466,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5797000" />
+    <option name="totallyTimeSpent" value="6979000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1513" height="983" extended-state="6" />
@@ -493,7 +511,9 @@
     <MESSAGE value="Call super constructor from DebugDrawer" />
     <MESSAGE value="Return the contents of the drawer wrapped in a material drawer" />
     <MESSAGE value="Return null if no drawer is in graph so we don't end up with an empty drawer in release" />
-    <option name="LAST_COMMIT_MESSAGE" value="Return null if no drawer is in graph so we don't end up with an empty drawer in release" />
+    <MESSAGE value="Added ContainerConsumer mixin" />
+    <MESSAGE value="Added generic type to ContainerConsumer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added generic type to ContainerConsumer" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lib/di/object_graph.dart" />
@@ -678,8 +698,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/ui/component/di_widget.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        <state relative-caret-position="483">
+          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
         </state>
       </provider>
     </entry>
