@@ -16,7 +16,7 @@ class ContainerProvider extends InheritedWidget {
   static Container of(BuildContext context) => (context.inheritFromWidgetOfExactType(ContainerProvider) as ContainerProvider).container;
 }
 
-mixin ContainerConsumer on State {
+mixin ContainerConsumer<T extends StatefulWidget> on State<T> {
   Container get container {
     return ContainerProvider.of(super.context);
   }
