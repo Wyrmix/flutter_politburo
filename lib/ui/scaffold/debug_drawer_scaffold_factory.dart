@@ -1,32 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_politburo/di/graph.dart';
 import 'package:scaffold_factory/scaffold_factory.dart';
-import 'package:event_bus/event_bus.dart';
-
-//class DebugScaffoldFactory extends ScaffoldFactory {
-//  factory DebugScaffoldFactory(
-//      {@required GlobalKey<ScaffoldState> scaffoldKey,
-//        @required MaterialPalette materialPalette,
-//        dynamic event}) =>
-//      DebugScaffoldFactory._internal(
-//          scaffoldKey: scaffoldKey,
-//          colorPalette: materialPalette,
-//          event: event);
-//
-//  StreamSubscription _eventBusSubscription;
-//
-//  DebugScaffoldFactory._internal(
-//      {@required scaffoldKey,
-//        @required colorPalette,
-//        dynamic event}) {
-//    _eventBusSubscription = eventBus.on<dynamic>().listen((event) async {
-//      if (event != null)
-//        this.scaffoldFactoryBehavior.onEventBusMessageReceived(event);
-//    });
-//  }
-//}
 
 class DebugDrawerScaffoldFactory implements ScaffoldFactory {
   ScaffoldFactory _factory;
