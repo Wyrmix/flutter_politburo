@@ -2,6 +2,7 @@ package io.flutter.plugins;
 
 import io.flutter.plugin.common.PluginRegistry;
 import com.fuyumi.flutterstatusbarcolor.flutterstatusbarcolor.FlutterStatusbarcolorPlugin;
+import io.flutter.plugins.imagepicker.ImagePickerPlugin;
 import com.erfanjazebnikoo.scaffoldfactory.ScaffoldFactoryPlugin;
 import io.flutter.plugins.urllauncher.UrlLauncherPlugin;
 
@@ -14,6 +15,7 @@ public final class GeneratedPluginRegistrant {
       return;
     }
     FlutterStatusbarcolorPlugin.registerWith(registry.registrarFor("com.fuyumi.flutterstatusbarcolor.flutterstatusbarcolor.FlutterStatusbarcolorPlugin"));
+    ImagePickerPlugin.registerWith(registry.registrarFor("io.flutter.plugins.imagepicker.ImagePickerPlugin"));
     ScaffoldFactoryPlugin.registerWith(registry.registrarFor("com.erfanjazebnikoo.scaffoldfactory.ScaffoldFactoryPlugin"));
     UrlLauncherPlugin.registerWith(registry.registrarFor("io.flutter.plugins.urllauncher.UrlLauncherPlugin"));
   }
