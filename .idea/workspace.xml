@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11f6dfa3-daaa-441f-9f53-c1dcd5068d5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/ui/component/card_settings.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/ui/component/image_picker.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/photo_picker_widget.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_politburo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_politburo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/lib/ui/screens/account.dart" beforeDir="false" afterPath="$PROJECT_DIR$/sample/lib/ui/screens/account.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -68,14 +60,43 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/ui/component/image_picker.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="989">
-              <caret line="43" column="18" lean-forward="true" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+              <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/screenshots/photo_picker_widget.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sample/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="368">
+                <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="184">
+                <caret line="8" column="103" selection-start-line="8" selection-start-column="103" selection-end-line="8" selection-end-column="103" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -94,18 +115,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-435">
               <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sample/lib/ui/screens/account.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="59" column="92" selection-start-line="59" selection-start-column="92" selection-end-line="59" selection-end-column="92" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -136,7 +145,6 @@
         <option value="$PROJECT_DIR$/lib/di/object_graph.dart" />
         <option value="$PROJECT_DIR$/sample/test/widget_test.dart" />
         <option value="$PROJECT_DIR$/lib/main.dart" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/sample/lib/ui/screens/login.dart" />
         <option value="$PROJECT_DIR$/sample/lib/ui/screens/browse.dart" />
         <option value="$PROJECT_DIR$/sample/lib/ui/routes/sample_router.dart" />
@@ -163,6 +171,7 @@
         <option value="$PROJECT_DIR$/sample/lib/ui/screens/account.dart" />
         <option value="$PROJECT_DIR$/lib/ui/component/card_settings.dart" />
         <option value="$PROJECT_DIR$/lib/ui/component/image_picker.dart" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -288,12 +297,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="ScreenshotViewer.SavePath" value="$PROJECT_DIR$/screenshots" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550612183644" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550614965967" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../fluro" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/screenshots" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -375,7 +385,7 @@
       <workItem from="1550112523916" duration="958000" />
       <workItem from="1550122846411" duration="15272000" />
       <workItem from="1550202602454" duration="5750000" />
-      <workItem from="1550535621190" duration="21097000" />
+      <workItem from="1550535621190" duration="21644000" />
     </task>
     <task id="LOCAL-00001" summary="Added incubating feature screen&#10;&#10;- added sample project to play with widgets from this library">
       <created>1549821394277</created>
@@ -482,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550156074416</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added image picker card">
+      <created>1550614451890</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1550614451891</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -491,7 +508,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46586000" />
+    <option name="totallyTimeSpent" value="47133000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1513" height="983" extended-state="6" />
@@ -499,7 +516,7 @@
     <layout>
       <window_info id="Build Variants" side_tool="true" />
       <window_info id="Captures" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4970179" visible="true" weight="0.24329896" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4970179" visible="true" weight="0.24329896" />
       <window_info id="Structure" order="1" sideWeight="0.5029821" side_tool="true" weight="0.2825911" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -548,7 +565,8 @@
     <MESSAGE value="Added DebugDrawerScaffoldFactory" />
     <MESSAGE value="Wrapped ScaffoldFactory in debug drawer factory to avoid internal constructor" />
     <MESSAGE value="Fixed proxy class around ScaffoldFactory and added test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed proxy class around ScaffoldFactory and added test" />
+    <MESSAGE value="Added image picker card" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added image picker card" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -593,17 +611,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/screenshots/incubating_feature.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/test/widget_test.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sample/lib/ui/screens/login.dart">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -953,10 +960,33 @@
     <entry file="file://$PROJECT_DIR$/lib/ui/component/image_picker.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="989">
-          <caret line="43" column="18" lean-forward="true" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/photo_picker_widget.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="368">
+            <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="184">
+            <caret line="8" column="103" selection-start-line="8" selection-start-column="103" selection-end-line="8" selection-end-column="103" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
