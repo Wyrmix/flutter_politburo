@@ -9,6 +9,13 @@
             </list>
           </value>
         </entry>
+        <entry key="auto_size_text">
+          <value>
+            <list>
+              <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/auto_size_text-1.0.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="boolean_selector">
           <value>
             <list>
@@ -20,7 +27,7 @@
           <value>
             <list>
               <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/card_settings-1.2.5/lib" />
-              <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/card_settings-1.4.0+2/lib" />
+              <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/card_settings-1.4.0+3/lib" />
             </list>
           </value>
         </entry>
@@ -159,6 +166,13 @@
             </list>
           </value>
         </entry>
+        <entry key="package_info">
+          <value>
+            <list>
+              <option value="C:/flutter/.pub-cache/hosted/pub.dartlang.org/package_info-0.4.0+1/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="path">
           <value>
             <list>
@@ -254,9 +268,10 @@
     </properties>
     <CLASSES>
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.0.8/lib" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/auto_size_text-1.0.0/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-1.0.4/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/card_settings-1.2.5/lib" />
-      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/card_settings-1.4.0+2/lib" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/card_settings-1.4.0+3/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/charcode-1.1.2/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.14.11/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-0.1.2/lib" />
@@ -276,6 +291,7 @@
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/kt_dart-0.5.0/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.3+1/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.1.6/lib" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/package_info-0.4.0+1/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.6.2/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.0.1/lib" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/scaffold_factory-0.7.9+1/lib" />

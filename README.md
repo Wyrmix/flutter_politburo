@@ -34,6 +34,10 @@ Mixin that makes accessing the container simpler
 
 End drawer that handles showing options to accelerate development
 
+#### Package Info Section
+
+![Package Info](/screenshots/package_info_drawer.png?raw=true "Package Info")
+
 ### Image Picker
 
 Simple box that handles selecting an image from the gallery or camera

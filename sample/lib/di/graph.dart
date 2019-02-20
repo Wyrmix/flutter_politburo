@@ -24,8 +24,9 @@ class SampleGraph extends DefaultObjectGraph {
   Future<Container> registerDevDependencies(Container container) async {
     final routeMap = SampleRouter().routeMap();
     final router = SampleRouter().router;
+    final infoSection = PackageInfoDebugDrawerSection();
     final routesSection = RouteEntrySection(routeMap, router);
-    container.register<DebugDrawer>((c) => DebugDrawer([routesSection]));
+    container.register<DebugDrawer>((c) => DebugDrawer([infoSection, routesSection]));
     container.register<ProductService>((c) => NetworkProductService());
     return container;
   }
