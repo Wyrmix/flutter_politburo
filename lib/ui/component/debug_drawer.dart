@@ -19,6 +19,8 @@ class PackageInfoDebugDrawerSection extends DebugDrawerSection {
         ),
       ),
       StreamBuilder(stream: PackageInfo.fromPlatform().asStream(), builder: (context, AsyncSnapshot<PackageInfo> snapshot) {
+        if (snapshot.data == null) return Container();
+
         return Container(child: Column(children: <Widget>[
           ListTile(
             leading: Text(
