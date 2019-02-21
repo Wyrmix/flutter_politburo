@@ -76,7 +76,7 @@ UUID: ${info.identifierForVendor}
               subtitle: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: AutoSizeText(
-                  snapshot.data.toString(),
+                  text,
                   maxLines: 10,
                   minFontSize: 12,
                 ),
