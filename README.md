@@ -38,6 +38,14 @@ End drawer that handles showing options to accelerate development
 
 ![Package Info](/screenshots/package_info_drawer.png?raw=true "Package Info")
 
+#### Device Info Section
+
+![Device Info](/screenshots/device_info.png?raw=true "Device Info")
+
+#### Media Query Info Section
+
+![Media Query](/screenshots/meqiaquery_info.png?raw=true "Media Query")
+
 ### Image Picker
 
 Simple box that handles selecting an image from the gallery or camera
