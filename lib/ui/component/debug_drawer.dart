@@ -94,6 +94,7 @@ class MediaQueryDebugDrawerSection extends DebugDrawerSection {
     final mq = MediaQuery.of(context);
     final text = """
 size: ${mq.size}
+orientation: ${mq.orientation}
 devicePixelRatio: ${mq.devicePixelRatio.toStringAsFixed(1)} 
 textScaleFactor: ${mq.textScaleFactor.toStringAsFixed(1)}
 padding: ${mq.padding}
