@@ -3,10 +3,10 @@
     <CLASSES>
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_statusbarcolor-0.1.6" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-4.2.0+3" />
-      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/scaffold_factory-0.7.9+1" />
-      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.4.12+1" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/package_info-0.4.0+1" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/device_info-0.4.0+1" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.5.0+3" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/scaffold_factory-0.8.1" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

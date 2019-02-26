@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11f6dfa3-daaa-441f-9f53-c1dcd5068d5d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_politburo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_politburo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/scaffold/debug_drawer_scaffold_factory.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/scaffold/debug_drawer_scaffold_factory.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -20,25 +24,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/ui/component/debug_drawer.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4669">
-              <caret line="209" selection-start-line="209" selection-end-line="209" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sample/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -80,11 +65,32 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pubspec.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
+            <state relative-caret-position="137">
+              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/ui/scaffold/debug_drawer_scaffold_factory.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="59" column="3" lean-forward="true" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/scaffold_factory-0.8.1/lib/scaffold_factory.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1677">
+              <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -151,11 +157,11 @@
         <option value="$PROJECT_DIR$/sample/lib/ui/screens/account.dart" />
         <option value="$PROJECT_DIR$/lib/ui/component/card_settings.dart" />
         <option value="$PROJECT_DIR$/lib/ui/component/image_picker.dart" />
-        <option value="$PROJECT_DIR$/lib/ui/scaffold/debug_drawer_scaffold_factory.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/sample/lib/di/graph.dart" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/lib/ui/component/debug_drawer.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/lib/ui/scaffold/debug_drawer_scaffold_factory.dart" />
       </list>
     </option>
   </component>
@@ -177,7 +183,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -216,6 +221,13 @@
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flutter_politburo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_politburo" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="scaffold" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="flutter_politburo" type="b2602c69:ProjectViewProjectNode" />
@@ -299,6 +311,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -392,7 +405,8 @@
       <workItem from="1550202602454" duration="5750000" />
       <workItem from="1550535621190" duration="31208000" />
       <workItem from="1550760853735" duration="4984000" />
-      <workItem from="1550800069369" duration="1344000" />
+      <workItem from="1550800069369" duration="2001000" />
+      <workItem from="1551171950010" duration="448000" />
     </task>
     <task id="LOCAL-00001" summary="Added incubating feature screen&#10;&#10;- added sample project to play with widgets from this library">
       <created>1549821394277</created>
@@ -555,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550764588940</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Update image picker dependency">
+      <created>1550857201825</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1550857201825</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -564,7 +585,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63025000" />
+    <option name="totallyTimeSpent" value="64130000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1513" height="983" extended-state="6" />
@@ -627,7 +648,8 @@
     <MESSAGE value="Added debug drawer sections for device info and media query info" />
     <MESSAGE value="Actually display iOS device info" />
     <MESSAGE value="Added orientation to media query" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added orientation to media query" />
+    <MESSAGE value="Update image picker dependency" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update image picker dependency" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -663,13 +685,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sample/lib/ui/profile/profile_vm.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sample/lib/data/product_service.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -880,7 +895,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ui/scaffold/debug_drawer_scaffold_factory.dart" />
     <entry file="file://C:/flutter/bin/cache/pkg/sky_engine/lib/ui/window.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -975,8 +989,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
+        <state relative-caret-position="137">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/scaffold_factory-0.8.1/lib/scaffold_factory.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1677">
+          <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/ui/scaffold/debug_drawer_scaffold_factory.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="59" column="3" lean-forward="true" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

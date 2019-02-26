@@ -28,7 +28,7 @@ packages:
       name: card_settings
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.5"
+    version: "1.4.1"
   charcode:
     dependency: transitive
     description:
@@ -43,6 +43,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.14.11"
+  cupertino_icons:
+    dependency: transitive
+    description:
+      name: cupertino_icons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2"
   device_info:
     dependency: "direct main"
     description:
@@ -89,14 +96,23 @@ packages:
       name: flutter_colorpicker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.7"
+    version: "0.2.1"
+  flutter_cupertino_settings:
+    dependency: transitive
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: df5b2bb77cb8478b5cd1ca92dd097a3be89abd89
+      url: "https://github.com/AppleEducate/flutter_cupertino_settings"
+    source: git
+    version: "0.1.0"
   flutter_masked_text:
     dependency: transitive
     description:
       name: flutter_masked_text
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.0"
+    version: "0.7.0"
   flutter_statusbarcolor:
     dependency: transitive
     description:
@@ -171,7 +187,7 @@ packages:
       name: scaffold_factory
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.9+1"
+    version: "0.8.1"
   sky_engine:
     dependency: transitive
     description: flutter

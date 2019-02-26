@@ -1,9 +1,13 @@
+import 'dart:async';
+
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_politburo/di/graph.dart';
 import 'package:scaffold_factory/scaffold_factory.dart';
 
 class DebugDrawerScaffoldFactory implements ScaffoldFactory {
   ScaffoldFactory _factory;
+  bool resizeToAvoidKeyboard = true;
 
   DebugDrawerScaffoldFactory(
       {@required GlobalKey<ScaffoldState> scaffoldKey,
@@ -51,6 +55,7 @@ class DebugDrawerScaffoldFactory implements ScaffoldFactory {
         ),
         child: this.nestedAppBarVisibility ? this.nestedAppBar : bodyWidget,
       ),
+      resizeToAvoidBottomPadding: resizeToAvoidKeyboard,
     );
   }
 
@@ -72,7 +77,9 @@ class DebugDrawerScaffoldFactory implements ScaffoldFactory {
           messageType: messageType, iconVisibility: iconVisibility);
 
   @override
-  void dispose() {}
+  void dispose() {
+    _factory.dispose();
+  }
 
   @override
   void updateAndroidFrameColor(
@@ -329,4 +336,16 @@ class DebugDrawerScaffoldFactory implements ScaffoldFactory {
 
   @override
   set scaffoldKey(GlobalKey<ScaffoldState> key) => _factory.scaffoldKey = key;
+
+  @override
+  StreamSubscription get eventBusSubscription => _factory.eventBusSubscription;
+
+  @override
+  set eventBusSubscription(StreamSubscription sub) => _factory.eventBusSubscription = sub;
+
+  @override
+  EventBus get eventBus => _factory.eventBus;
+
+  @override
+  set eventBus(EventBus ev) => _factory.eventBus = ev;
 }
