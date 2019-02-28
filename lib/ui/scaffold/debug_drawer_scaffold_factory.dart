@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_politburo/di/graph.dart';
+import 'package:flutter_politburo/flutter_politburo.dart';
 import 'package:scaffold_factory/scaffold_factory.dart';
 
 class DebugDrawerScaffoldFactory implements ScaffoldFactory {
@@ -36,7 +37,7 @@ class DebugDrawerScaffoldFactory implements ScaffoldFactory {
       bottomNavigationBar:
           this.bottomNavigationBarVisibility ? this.bottomNavigationBar : null,
       drawer: this.drawerVisibility ? this.drawer : null,
-      endDrawer: ObjectGraph.graph.debugDrawer,
+      endDrawer: isInDebugMode ? ObjectGraph.graph.debugDrawer : null,
       floatingActionButton: this.floatingActionButtonVisibility
           ? this.floatingActionButton
           : null,
