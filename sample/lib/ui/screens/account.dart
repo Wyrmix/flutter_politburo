@@ -1,10 +1,14 @@
+import 'dart:io';
+
 import 'package:card_settings/card_settings.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_politburo/ui/component/di_widget.dart';
+import 'package:flutter_politburo/ui/component/image_picker.dart';
 import 'package:flutter_politburo/ui/component/incubating.dart';
 import 'package:flutter_politburo/ui/scaffold/debug_drawer_scaffold_factory.dart';
+import 'package:quiver/core.dart';
 import 'package:sample/ui/profile/profile_vm.dart';
 import 'package:scaffold_factory/scaffold_factory.dart';
 import 'package:flutter_politburo/ui/component/card_settings.dart';
@@ -49,21 +53,38 @@ class _ProfileFormState extends State<ProfileForm> with ContainerConsumer {
 
   @override
   Widget build(BuildContext context) {
-    var body = Padding(
-      padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-      child: Form(
-          child: CardSettings(
-            children: <Widget>[
-              CardSettingsHeader(label: "Colors", labelAlign: TextAlign.center,),
-              CardSettingsColorPicker(label: 'Color',),
-              CardSettingsHeader(label: "Photos", labelAlign: TextAlign.center,),
-              CardSettingsPhotoPicker(label: 'Images', onChanged: (value) { Fimber.d("$value"); },),
-            ],
-          )),
+//    var body = Padding(
+//      padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+//      child: Form(
+//          child: CardSettings(
+//            children: <Widget>[
+//              CardSettingsHeader(label: "Colors", labelAlign: TextAlign.center,),
+//              CardSettingsColorPicker(label: 'Color',),
+//              CardSettingsHeader(label: "Photos", labelAlign: TextAlign.center,),
+//              CardSettingsPhotoPicker(label: 'Images', onChanged: (value) { Fimber.d("$value"); },),
+//            ],
+//          )),
+//    );
+
+    var body = Center(
+      child: Container(
+        child: ConstrainedBox(
+          constraints: BoxConstraints.loose(Size(250, 250)),
+          child: ImagePicker(
+            ImagePickerEditingController(Optional.absent()),
+            _upload,
+            url: "https://placekitten.com/800/800",
+          ),
+        ),
+      ),
     );
 
     return _scaffoldFactory.build(body);
 //    return IncubatingScreen();
+  }
+
+  Future<String> _upload(File file) async {
+    return "https://placekitten.com/1200/1200";
   }
 
   @override

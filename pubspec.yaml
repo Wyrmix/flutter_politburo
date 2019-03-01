@@ -21,6 +21,9 @@ dependencies:
   package_info: ^0.4.0+1
   device_info: ^0.4.0+1
   auto_size_text: ^1.0.0
+  sealed_unions: ^3.0.2
+  bloc: ^0.9.3
+  flutter_bloc: ^0.7.0
 
 dev_dependencies:
   flutter_test:

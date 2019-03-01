@@ -3,11 +3,16 @@ import 'package:fimber/fimber.dart';
 import 'package:image_picker/image_picker.dart' as system;
 import 'package:flutter/material.dart';
 import 'package:quiver/core.dart';
+import 'package:sealed_unions/sealed_unions.dart';
+import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ImagePicker extends StatefulWidget {
   final ImagePickerEditingController controller;
+  final ImageUploader uploader;
+  final String url;
 
-  ImagePicker(this.controller);
+  ImagePicker(this.controller, this.uploader, {this.url = ''});
 
   @override
   _ImagePickerState createState() => _ImagePickerState();
@@ -19,43 +24,212 @@ class ImagePicker extends StatefulWidget {
 }
 
 class _ImagePickerState extends State<ImagePicker> {
+  ImagePickerBloc bloc;
+
+  @override
+  void initState() {
+    super.initState();
+    bloc = ImagePickerBloc(widget.uploader);
+    if (widget.url != null) {
+      if (widget.url.isNotEmpty) {
+        bloc.dispatch(ImagePickerEvent.success(widget.url));
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    Fimber.d("${widget.toStringShort()}");
-    var hasValue = widget.controller.value.image.isPresent;
+    return BlocBuilder(
+      bloc: bloc,
+      builder: (context, ImagePickerState state) {
+        return state.join(
+            (empty) => _emptyInkwell(),
+            (file) => _fileInkwell(file.file),
+            (url) => _networkInkwell(url.url),
+            (uploading) => _loadingInkwell(uploading.file),
+            (success) => _uploadedInkwell(success.url),
+            (error) => _failedInkwell());
+      },
+    );
+  }
+
+  Widget _emptyInkwell() {
     return InkWell(
       child: Stack(
         fit: StackFit.loose,
-        alignment: hasValue
-            ? AlignmentDirectional.topEnd
-            : AlignmentDirectional.center,
+        alignment: AlignmentDirectional.center,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: 32, minWidth: 32),
               child: Container(
-                decoration: BoxDecoration(border: Border.all(color: Colors.black12)),
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.black12)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: hasValue
-                      ? Container(decoration: BoxDecoration(image: DecorationImage(image: FileImage(widget.controller.value.image.value), fit: BoxFit.contain)),)
-                      : Container(),
+                  child: Container(),
                 ),
               ),
             ),
           ),
-          hasValue ? _clearIcon() : _addIcon(),
+          _addIcon(),
         ],
       ),
       onTap: () {
-        if (hasValue) {
-          setState(() {
-            widget.controller.value = ImagePickerValue(Optional.absent());
-          });
-        } else {
+        showDialog(context: context, builder: _showDialog);
+      },
+    );
+  }
+
+  Widget _fileInkwell(File file) {
+    return _imageInkwell(FileImage(file));
+  }
+
+  Widget _networkInkwell(String url) {
+    return _imageInkwell(NetworkImage(url));
+  }
+
+  Widget _imageInkwell(ImageProvider provider) {
+    return InkWell(
+      child: Stack(
+        fit: StackFit.loose,
+        alignment: AlignmentDirectional.topEnd,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: 32, minWidth: 32),
+              child: Container(
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.black12)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: provider, fit: BoxFit.contain)),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          _clearIcon(),
+        ],
+      ),
+      onTap: () {
+        setState(() {
+          widget.controller.value = ImagePickerValue(Optional.absent());
+          bloc.dispatch(ImagePickerEvent.cleared());
+        });
+      },
+    );
+  }
+
+  Widget _loadingInkwell(File file) {
+    return InkWell(
+      child: Stack(
+        fit: StackFit.loose,
+        alignment: AlignmentDirectional.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: 32, minWidth: 32),
+              child: Container(
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.black12)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: FileImage(file), fit: BoxFit.contain)),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          CircularProgressIndicator(),
+        ],
+      ),
+    );
+  }
+
+  Widget _uploadedInkwell(String url) {
+    return InkWell(
+      child: Stack(
+        fit: StackFit.loose,
+        alignment: AlignmentDirectional.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: 32, minWidth: 32),
+              child: Container(
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.black12)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(url), fit: BoxFit.contain)),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            decoration:
+                BoxDecoration(color: Colors.green, shape: BoxShape.circle),
+            child: Icon(
+              Icons.check,
+              color: Colors.black,
+            ),
+          ),
+        ],
+      ),
+      onTap: () {
+        setState(() {
           showDialog(context: context, builder: _showDialog);
-        }
+        });
+      },
+    );
+  }
+
+  Widget _failedInkwell() {
+    return InkWell(
+      child: Stack(
+        fit: StackFit.loose,
+        alignment: AlignmentDirectional.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: 32, minWidth: 32),
+              child: Container(
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.black12)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            decoration:
+                BoxDecoration(color: Colors.red, shape: BoxShape.circle),
+            child: Icon(
+              Icons.error,
+              color: Colors.black,
+            ),
+          ),
+        ],
+      ),
+      onTap: () {
+        showDialog(context: context, builder: _showDialog);
       },
     );
   }
@@ -88,14 +262,17 @@ class _ImagePickerState extends State<ImagePicker> {
           icon: Icons.camera_alt,
           text: "Camera",
           onPressed: () {
+            Navigator.of(context, rootNavigator: true).pop('dialog');
             system.ImagePicker.pickImage(source: system.ImageSource.camera)
                 .then((file) {
               setState(() {
                 widget.controller.value = ImagePickerValue(Optional.of(file));
+                bloc.dispatch(ImagePickerEvent.file(file));
               });
             }).catchError((er) {
               setState(() {
                 widget.controller.value = ImagePickerValue(Optional.absent());
+                bloc.dispatch(ImagePickerEvent.failed(er));
               });
             });
           },
@@ -104,16 +281,24 @@ class _ImagePickerState extends State<ImagePicker> {
           icon: Icons.camera,
           text: "Gallery",
           onPressed: () {
+//            Navigator.of(context, rootNavigator: true).pop('dialog');
             system.ImagePicker.pickImage(source: system.ImageSource.gallery)
                 .then((file) {
               Fimber.d("Picked $file");
               setState(() {
-                widget.controller.value = ImagePickerValue(Optional.of(file));
+                if (file == null) {
+                  widget.controller.value = ImagePickerValue(Optional.absent());
+                  bloc.dispatch(ImagePickerEvent.cleared());
+                } else {
+                  widget.controller.value = ImagePickerValue(Optional.of(file));
+                  bloc.dispatch(ImagePickerEvent.file(file));
+                }
                 Fimber.d("Picked ${widget.controller.value}");
               });
             }).catchError((ex) {
               setState(() {
                 widget.controller.value = ImagePickerValue(Optional.absent());
+                bloc.dispatch(ImagePickerEvent.failed(ex));
               });
             });
             Navigator.pop(context);
@@ -153,11 +338,13 @@ class ImagePickerDialogItem extends StatelessWidget {
   }
 }
 
+typedef ImageUploader = Future<String> Function(File file);
+
 class ImagePickerEditingController extends ValueNotifier<ImagePickerValue> {
   ImagePickerEditingController(Optional<File> image)
       : super(ImagePickerValue(image));
 
-  Optional<File> get image => this.value.image;
+  Optional<File> get image => this.value.file;
 
   @override
   String toString() {
@@ -166,10 +353,233 @@ class ImagePickerEditingController extends ValueNotifier<ImagePickerValue> {
 }
 
 class ImagePickerValue {
-  final Optional<File> image;
+  final Optional<File> file;
 
-  ImagePickerValue(this.image);
+  ImagePickerValue(this.file);
+}
+
+class ImagePickerBloc extends Bloc<ImagePickerEvent, ImagePickerState> {
+  final ImageUploader uploader;
+
+  ImagePickerBloc(this.uploader);
 
   @override
-  String toString() => "ImagePickerValue($image)";
+  ImagePickerState get initialState => ImagePickerState.empty();
+
+  @override
+  Stream<ImagePickerState> mapEventToState(
+      ImagePickerState currentState, ImagePickerEvent event) async* {
+    yield event.join(
+        (c) => _fileCleared(currentState),
+        (f) => _filePicked(currentState, f.file),
+        (u) => _uploadStarted(currentState),
+        (u) => _uploadSuccess(currentState, u.url),
+        (f) => _failed(currentState, f.ex));
+  }
+
+  @override
+  void onTransition(Transition<ImagePickerEvent, ImagePickerState> transition) {
+    var e = transition.event;
+    var s = transition.currentState;
+    Fimber.d("Transition [$e] => [$s]");
+  }
+
+  @override
+  void onError(Object error, StackTrace stacktrace) {
+    Fimber.e('Error in ImagePickerBloc', ex: error, stacktrace: stacktrace);
+    if (error is Exception) {
+      dispatch(ImagePickerEvent.failed(error));
+    }
+  }
+
+  ImagePickerState _fileCleared(ImagePickerState currentState) {
+    return ImagePickerState.empty();
+  }
+
+  ImagePickerState _filePicked(ImagePickerState currentState, File file) {
+    uploader(file)
+        .then((url) => this.dispatch(ImagePickerEvent.success(url)))
+        .catchError((e) => this.dispatch(ImagePickerEvent.failed(e)));
+    this.dispatch(ImagePickerEvent.upload());
+    return ImagePickerState.file(file);
+  }
+
+  ImagePickerState _uploadStarted(ImagePickerState currentState) {
+    return currentState.join(
+        (empty) => ImagePickerState.empty(),
+        (file) => ImagePickerState.uploading(file.file),
+        (url) => ImagePickerState.success(url.url),
+        (uploading) => ImagePickerState.uploading(uploading.file),
+        (success) => ImagePickerState.success(success.url),
+        (error) => ImagePickerState.error(error.ex));
+  }
+
+  ImagePickerState _uploadSuccess(ImagePickerState currentState, String url) {
+    return currentState.join(
+        (_) => ImagePickerState.url(url),
+        (_) => ImagePickerState.success(url),
+        (_) => ImagePickerState.success(url),
+        (_) => ImagePickerState.success(url),
+        (i) => ImagePickerState.success(i.url),
+        (_) => ImagePickerState.success(url));
+  }
+
+  ImagePickerState _failed(ImagePickerState currentState, Object ex) {
+    Fimber.e('Error with current state $currentState', ex: ex ?? {});
+    return ImagePickerState.error(ex);
+  }
+}
+
+class ImagePickerEvent extends Union5Impl<
+    ImagePickerEventCleared,
+    ImagePickerEventFileSelected,
+    ImagePickerEventUploadStarted,
+    ImagePickerEventUploadSuccess,
+    ImagePickerEventUploadFailed> {
+  static final _factory = Quintet<
+      ImagePickerEventCleared,
+      ImagePickerEventFileSelected,
+      ImagePickerEventUploadStarted,
+      ImagePickerEventUploadSuccess,
+      ImagePickerEventUploadFailed>();
+
+  ImagePickerEvent(
+      Union5<
+              ImagePickerEventCleared,
+              ImagePickerEventFileSelected,
+              ImagePickerEventUploadStarted,
+              ImagePickerEventUploadSuccess,
+              ImagePickerEventUploadFailed>
+          union)
+      : super(union);
+
+  factory ImagePickerEvent.cleared() =>
+      ImagePickerEvent(_factory.first(ImagePickerEventCleared()));
+
+  factory ImagePickerEvent.file(File file) =>
+      ImagePickerEvent(_factory.second(ImagePickerEventFileSelected(file)));
+
+  factory ImagePickerEvent.upload() =>
+      ImagePickerEvent(_factory.third(ImagePickerEventUploadStarted()));
+
+  factory ImagePickerEvent.success(String url) =>
+      ImagePickerEvent(_factory.fourth(ImagePickerEventUploadSuccess(url)));
+
+  factory ImagePickerEvent.failed(Object ex) =>
+      ImagePickerEvent(_factory.fifth(ImagePickerEventUploadFailed(ex)));
+
+  @override
+  String toString() {
+    return this.join(
+        (_) => "ImagePickerEventCleared",
+        (file) => "ImagePickerEventFileSelected(${file.file})",
+        (file) => "ImagePickerEventUploadStarted()",
+        (success) => "ImagePickerEventUploadSuccess(${success.url})",
+        (error) => "ImagePickerEventUploadFailed(${error.ex})");
+  }
+}
+
+class ImagePickerEventCleared {}
+
+class ImagePickerEventFileSelected {
+  final File file;
+
+  ImagePickerEventFileSelected(this.file);
+}
+
+class ImagePickerEventUploadStarted {}
+
+class ImagePickerEventUploadSuccess {
+  final String url;
+
+  ImagePickerEventUploadSuccess(this.url);
+}
+
+class ImagePickerEventUploadFailed {
+  final Object ex;
+
+  ImagePickerEventUploadFailed(this.ex);
+}
+
+class ImagePickerState extends Union6Impl<
+    ImagePickerEmpty,
+    ImagePickerFile,
+    ImagePickerUrl,
+    ImagePickerUploading,
+    ImagePickerUploadSuccess,
+    ImagePickerError> {
+  static final _factory = Sextet<
+      ImagePickerEmpty,
+      ImagePickerFile,
+      ImagePickerUrl,
+      ImagePickerUploading,
+      ImagePickerUploadSuccess,
+      ImagePickerError>();
+
+  ImagePickerState(
+      Union6<ImagePickerEmpty, ImagePickerFile, ImagePickerUrl,
+              ImagePickerUploading, ImagePickerUploadSuccess, ImagePickerError>
+          union)
+      : super(union);
+
+  factory ImagePickerState.empty() =>
+      ImagePickerState(_factory.first(ImagePickerEmpty()));
+
+  factory ImagePickerState.file(File file) =>
+      ImagePickerState(_factory.second(ImagePickerFile(file)));
+
+  factory ImagePickerState.url(String url) =>
+      ImagePickerState(_factory.third(ImagePickerUrl(url)));
+
+  factory ImagePickerState.uploading(File file) =>
+      ImagePickerState(_factory.fourth(ImagePickerUploading(file)));
+
+  factory ImagePickerState.success(String url) =>
+      ImagePickerState(_factory.fifth(ImagePickerUploadSuccess(url)));
+
+  factory ImagePickerState.error(Object ex) =>
+      ImagePickerState(_factory.sixth(ImagePickerError(ex)));
+
+  @override
+  String toString() {
+    return this.join(
+        (empty) => "ImagePickerEmpty",
+        (file) => "ImagePickerFile(${file.file})",
+        (url) => "ImagePickerUrl(${url.url})",
+        (uploading) => "ImagePickerUploading(${uploading.file})",
+        (success) => "ImagePickerUploadSuccess(${success.url})",
+        (error) => "ImagePickerError(${error.ex})");
+  }
+}
+
+class ImagePickerEmpty {}
+
+class ImagePickerFile {
+  final File file;
+
+  ImagePickerFile(this.file);
+}
+
+class ImagePickerUrl {
+  final String url;
+
+  ImagePickerUrl(this.url);
+}
+
+class ImagePickerUploading {
+  final File file;
+
+  ImagePickerUploading(this.file);
+}
+
+class ImagePickerUploadSuccess {
+  final String url;
+
+  ImagePickerUploadSuccess(this.url);
+}
+
+class ImagePickerError {
+  final Object ex;
+
+  ImagePickerError(this.ex);
 }

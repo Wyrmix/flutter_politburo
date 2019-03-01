@@ -24,6 +24,7 @@ class CardSettingsPhotoPicker extends FormField<List<File>> {
     FormFieldSetter<List<File>> onSaved,
     FormFieldValidator<List<File>> validator,
     ValueChanged<List<File>> onChanged,
+    ImageUploader uploader,
   }) : super(
             key: key,
             initialValue: initialValue,
@@ -39,12 +40,12 @@ class CardSettingsPhotoPicker extends FormField<List<File>> {
               for(var i = 0; i < state.value.length; i++) {
                 final controller = ImagePickerEditingController(Optional.of(state.value[i]));
                 imageEditingControllers.add(controller);
-                imagePickers.add(ImagePicker(controller));
+                imagePickers.add(ImagePicker(controller, uploader));
                 controller.addListener(() => _onImageSelect(controller, state, i));
               }
               final controller = ImagePickerEditingController(Optional.absent());
               imageEditingControllers.add(controller);
-              imagePickers.add(ImagePicker(controller));
+              imagePickers.add(ImagePicker(controller, uploader));
               controller.addListener(() => _onImageSelect(controller, state, state.value.length));
 
               Fimber.d("Pickers [$imagePickers]");
@@ -66,7 +67,7 @@ class CardSettingsPhotoPicker extends FormField<List<File>> {
   static _onImageSelect(ImagePickerEditingController controller, FormFieldState<List<File>> state, int index) {
     Fimber.d("ImagePickerEditingController returned new value ${controller.value}");
     Fimber.d("State [${state.value}]");
-    if (controller.value.image.isPresent) {
+    if (controller.value.file.isPresent) {
       var list = state.value.toList(growable: true);
       list.insert(index, controller.image.value);
 //      state.didChange(state.value.followedBy([controller.image.value]).toList());
@@ -76,6 +77,10 @@ class CardSettingsPhotoPicker extends FormField<List<File>> {
       list.removeAt(index);
       state.didChange(list);
     }
+  }
+
+  static Future<String> _upload(File file) async {
+    return "";
   }
 
   @override
