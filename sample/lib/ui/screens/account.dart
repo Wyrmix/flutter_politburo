@@ -69,7 +69,9 @@ class _ProfileFormState extends State<ProfileForm> with ContainerConsumer {
     var body = Center(
       child: Container(
         child: ConstrainedBox(
-          constraints: BoxConstraints.loose(Size(250, 250)),
+//          constraints: BoxConstraints.loose(Size(250, 250)),
+          constraints: BoxConstraints(
+              minHeight: 96, minWidth: 96, maxHeight: 250, maxWidth: 250),
           child: ImagePicker(
             ImagePickerEditingController(Optional.absent()),
             _upload,
@@ -83,8 +85,8 @@ class _ProfileFormState extends State<ProfileForm> with ContainerConsumer {
 //    return IncubatingScreen();
   }
 
-  Future<String> _upload(File file) async {
-    return "https://placekitten.com/1200/1200";
+  Future<Optional<String>> _upload(File file) async {
+    return Optional.of("https://placekitten.com/1200/1200");
   }
 
   @override

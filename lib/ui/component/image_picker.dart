@@ -338,7 +338,7 @@ class ImagePickerDialogItem extends StatelessWidget {
   }
 }
 
-typedef ImageUploader = Future<String> Function(File file);
+typedef ImageUploader = Future<Optional<String>> Function(File file);
 
 class ImagePickerEditingController extends ValueNotifier<ImagePickerValue> {
   ImagePickerEditingController(Optional<File> image)
@@ -398,8 +398,9 @@ class ImagePickerBloc extends Bloc<ImagePickerEvent, ImagePickerState> {
 
   ImagePickerState _filePicked(ImagePickerState currentState, File file) {
     uploader(file)
-        .then((url) => this.dispatch(ImagePickerEvent.success(url)))
+        .then((o) => o.ifPresent((s) => this.dispatch(ImagePickerEvent.success(s))))
         .catchError((e) => this.dispatch(ImagePickerEvent.failed(e)));
+
     this.dispatch(ImagePickerEvent.upload());
     return ImagePickerState.file(file);
   }
