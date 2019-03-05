@@ -139,6 +139,9 @@ boldText: ${mq.boldText}
 }
 
 class PackageInfoDebugDrawerSection extends DebugDrawerSection {
+  Stream<PackageInfo> _info = PackageInfo.fromPlatform().asStream();
+  Stream<PackageInfo> get infoStream => _info.asBroadcastStream();
+
   @override
   List<Widget> build(BuildContext context) {
     final widgets = <Widget>[
@@ -149,7 +152,7 @@ class PackageInfoDebugDrawerSection extends DebugDrawerSection {
         ),
       ),
       StreamBuilder(
-        stream: PackageInfo.fromPlatform().asStream(),
+        stream: infoStream,
         builder: (context, AsyncSnapshot<PackageInfo> snapshot) {
           if (snapshot.data == null) return Container();
 
