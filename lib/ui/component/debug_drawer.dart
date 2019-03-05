@@ -13,15 +13,27 @@ abstract class DebugDrawerSection {
 }
 
 class DeviceInfoDebugDrawerSection extends DebugDrawerSection {
+  DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+
+  Stream get deviceInfoStream {
+    if (Platform.isAndroid) {
+      return deviceInfo.androidInfo.asStream().asBroadcastStream();
+    }
+    if (Platform.isIOS) {
+      return deviceInfo.iosInfo.asStream().asBroadcastStream();
+    }
+    return Stream.empty();
+  }
+
   @override
   List<Widget> build(BuildContext context) {
     final widgets = <Widget>[];
-    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+
     if (Platform.isAndroid) {
       widgets.add(StreamBuilder(
-          stream: deviceInfo.androidInfo.asStream(),
-          builder: (context, AsyncSnapshot<AndroidDeviceInfo> snapshot) {
-            final info = snapshot.data;
+          stream: deviceInfoStream,
+          builder: (context, AsyncSnapshot snapshot) {
+            final info = snapshot.data as AndroidDeviceInfo;
             final text = """
 isPhysicalDevice: ${info.isPhysicalDevice}
 Device: ${info.device}
@@ -56,9 +68,9 @@ Build: ${info.type}
 
     if (Platform.isIOS) {
       widgets.add(StreamBuilder(
-          stream: deviceInfo.iosInfo.asStream(),
-          builder: (context, AsyncSnapshot<IosDeviceInfo> snapshot) {
-            final info = snapshot.data;
+          stream: deviceInfoStream,
+          builder: (context, AsyncSnapshot snapshot) {
+            final info = snapshot.data as IosDeviceInfo;
             final text = """
 isPhysicalDevice: ${info.isPhysicalDevice}
 Device: ${info.name}

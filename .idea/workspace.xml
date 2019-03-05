@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="11f6dfa3-daaa-441f-9f53-c1dcd5068d5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/component/debug_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/component/debug_drawer.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -19,15 +20,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sample/lib/data/db/product_service.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sample/pubspec.yaml">
           <provider selected="true" editor-type-id="text-editor">
@@ -96,11 +88,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/di/graph.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="87" column="48" selection-start-line="87" selection-start-column="48" selection-end-line="87" selection-end-column="48" />
+            <state relative-caret-position="494">
+              <caret line="88" column="45" selection-start-line="88" selection-start-column="45" selection-end-line="88" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/ui/component/debug_drawer.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="538">
+              <caret line="73" column="28" lean-forward="true" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -163,7 +164,6 @@
         <option value="$PROJECT_DIR$/test/ui/scaffold/debug_drawer_scaffold_factory_test.dart" />
         <option value="$PROJECT_DIR$/sample/lib/di/graph.dart" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/lib/ui/component/debug_drawer.dart" />
         <option value="$PROJECT_DIR$/lib/ui/scaffold/debug_drawer_scaffold_factory.dart" />
         <option value="$PROJECT_DIR$/sample/android/gradle/wrapper/gradle-wrapper.properties" />
         <option value="$PROJECT_DIR$/sample/android/gradle.properties" />
@@ -176,6 +176,7 @@
         <option value="$PROJECT_DIR$/lib/ui/component/image_picker.dart" />
         <option value="$PROJECT_DIR$/lib/ui/component/card_settings.dart" />
         <option value="$PROJECT_DIR$/lib/di/graph.dart" />
+        <option value="$PROJECT_DIR$/lib/ui/component/debug_drawer.dart" />
       </list>
     </option>
   </component>
@@ -283,7 +284,7 @@
     <property name="ScreenshotViewer.SavePath" value="$PROJECT_DIR$/screenshots" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551745873016" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551747186170" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -377,7 +378,7 @@
       <workItem from="1551385375574" duration="12464000" />
       <workItem from="1551406814530" duration="5301000" />
       <workItem from="1551674750031" duration="1701000" />
-      <workItem from="1551709261165" duration="5226000" />
+      <workItem from="1551709261165" duration="6219000" />
     </task>
     <task id="LOCAL-00001" summary="Added incubating feature screen&#10;&#10;- added sample project to play with widgets from this library">
       <created>1549821394277</created>
@@ -575,7 +576,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551744640013</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="I'm dumb removed the wrong one">
+      <created>1551745885709</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1551745885709</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -584,7 +592,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98841000" />
+    <option name="totallyTimeSpent" value="99834000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="4" width="1920" height="1076" extended-state="6" />
@@ -630,7 +638,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Routing and DI&#10;&#10;- moved base classes to library&#10;- added incomplete examples to sample project" />
     <MESSAGE value="Fixed some reference issues with the DI container" />
     <MESSAGE value="Unmark env as final in ObjectGraph" />
     <MESSAGE value="Make sure we're using the same container for the debug drawer" />
@@ -655,7 +662,8 @@
     <MESSAGE value="This can't be null in the graph so check manually before adding the drawer" />
     <MESSAGE value="Updated image picker to upload images and handle loading images from urls" />
     <MESSAGE value="Don't add prod dependencies into dev graph so the debug drawer doesn't get overwritten" />
-    <option name="LAST_COMMIT_MESSAGE" value="Don't add prod dependencies into dev graph so the debug drawer doesn't get overwritten" />
+    <MESSAGE value="I'm dumb removed the wrong one" />
+    <option name="LAST_COMMIT_MESSAGE" value="I'm dumb removed the wrong one" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -744,13 +752,6 @@
         <state split_layout="SPLIT">
           <first_editor />
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ui/component/debug_drawer.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4669">
-          <caret line="209" selection-start-line="209" selection-end-line="209" />
         </state>
       </provider>
     </entry>
@@ -887,8 +888,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/di/graph.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="87" column="48" selection-start-line="87" selection-start-column="48" selection-end-line="87" selection-end-column="48" />
+        <state relative-caret-position="494">
+          <caret line="88" column="45" selection-start-line="88" selection-start-column="45" selection-end-line="88" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/ui/component/debug_drawer.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="73" column="28" lean-forward="true" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
         </state>
       </provider>
     </entry>
