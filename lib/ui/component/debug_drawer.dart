@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -33,6 +34,7 @@ class DeviceInfoDebugDrawerSection extends DebugDrawerSection {
       widgets.add(StreamBuilder(
           stream: deviceInfoStream,
           builder: (context, AsyncSnapshot snapshot) {
+            if (snapshot.data == null) return Container();
             final info = snapshot.data as AndroidDeviceInfo;
             final text = """
 isPhysicalDevice: ${info.isPhysicalDevice}
@@ -70,6 +72,7 @@ Build: ${info.type}
       widgets.add(StreamBuilder(
           stream: deviceInfoStream,
           builder: (context, AsyncSnapshot snapshot) {
+            if (snapshot.data == null) return Container();
             final info = snapshot.data as IosDeviceInfo;
             final text = """
 isPhysicalDevice: ${info.isPhysicalDevice}
@@ -139,8 +142,8 @@ boldText: ${mq.boldText}
 }
 
 class PackageInfoDebugDrawerSection extends DebugDrawerSection {
-  Stream<PackageInfo> _info = PackageInfo.fromPlatform().asStream();
-  Stream<PackageInfo> get infoStream => _info.asBroadcastStream();
+  static Stream<PackageInfo> _stream = PackageInfo.fromPlatform().asStream();
+  static Stream<PackageInfo> infoStream = _stream.asBroadcastStream();
 
   @override
   List<Widget> build(BuildContext context) {
@@ -154,6 +157,7 @@ class PackageInfoDebugDrawerSection extends DebugDrawerSection {
       StreamBuilder(
         stream: infoStream,
         builder: (context, AsyncSnapshot<PackageInfo> snapshot) {
+          Fimber.d("snapshot data [${snapshot.data}]");
           if (snapshot.data == null) return Container();
 
           return Container(
