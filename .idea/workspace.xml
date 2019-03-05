@@ -4,75 +4,8 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11f6dfa3-daaa-441f-9f53-c1dcd5068d5d" name="Default Changelist" comment="Updated image picker to upload images and handle loading images from urls">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/markdown-navigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/markdown-navigator/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/markdown-navigator/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="11f6dfa3-daaa-441f-9f53-c1dcd5068d5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.metadata" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_politburo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_politburo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/di/env.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/env.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/di/graph.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/graph.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/flutter_politburo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_politburo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/component/card_settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/component/card_settings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/component/debug_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/component/debug_drawer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/component/di_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/component/di_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/component/image_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/component/image_picker.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/component/incubating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/component/incubating.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/routes/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/routes/app_router.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/scaffold/debug_drawer_scaffold_factory.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/scaffold/debug_drawer_scaffold_factory.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/sample/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/.metadata" beforeDir="false" afterPath="$PROJECT_DIR$/sample/.metadata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/sample/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/sample/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sample/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/android/app/src/main/java/com/example/sample/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/sample/android/app/src/main/java/com/example/sample/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sample/android/app/src/main/res/drawable/launch_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/android/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sample/android/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/sample/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sample/android/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sample/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/sample/android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Flutter/AppFrameworkInfo.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Flutter/Debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Flutter/Release.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Runner.xcworkspace/contents.xcworkspacedata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Runner/AppDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Runner/AppDelegate.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Runner/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Runner/AppDelegate.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Runner/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Runner/Base.lproj/Main.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Runner/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/ios/Runner/main.m" beforeDir="false" afterPath="$PROJECT_DIR$/sample/ios/Runner/main.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/lib/data/db/product_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/sample/lib/data/db/product_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/lib/data/mock/product_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/sample/lib/data/mock/product_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/lib/data/models/product.dart" beforeDir="false" afterPath="$PROJECT_DIR$/sample/lib/data/models/product.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/lib/data/network/product_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/sample/lib/data/network/product_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/lib/data/product_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/sample/lib/data/product_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/lib/di/graph.dart" beforeDir="false" afterPath="$PROJECT_DIR$/sample/lib/di/graph.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/sample/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/lib/ui/profile/profile_vm.dart" beforeDir="false" afterPath="$PROJECT_DIR$/sample/lib/ui/profile/profile_vm.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/lib/ui/routes/sample_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/sample/lib/ui/routes/sample_router.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/lib/ui/screens/account.dart" beforeDir="false" afterPath="$PROJECT_DIR$/sample/lib/ui/screens/account.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/sample/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/sample/test/widget_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/flutter_politburo_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/flutter_politburo_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ui/scaffold/debug_drawer_scaffold_factory_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/ui/scaffold/debug_drawer_scaffold_factory_test.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -350,7 +283,7 @@
     <property name="ScreenshotViewer.SavePath" value="$PROJECT_DIR$/screenshots" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551744535548" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551745873016" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -444,7 +377,7 @@
       <workItem from="1551385375574" duration="12464000" />
       <workItem from="1551406814530" duration="5301000" />
       <workItem from="1551674750031" duration="1701000" />
-      <workItem from="1551709261165" duration="4476000" />
+      <workItem from="1551709261165" duration="5226000" />
     </task>
     <task id="LOCAL-00001" summary="Added incubating feature screen&#10;&#10;- added sample project to play with widgets from this library">
       <created>1549821394277</created>
@@ -635,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551410667030</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Don't add prod dependencies into dev graph so the debug drawer doesn't get overwritten">
+      <created>1551744640013</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1551744640013</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -644,7 +584,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98091000" />
+    <option name="totallyTimeSpent" value="98841000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="4" width="1920" height="1076" extended-state="6" />
@@ -689,7 +629,7 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added incubating feature screen&#10;&#10;- added sample project to play with widgets from this library" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Routing and DI&#10;&#10;- moved base classes to library&#10;- added incomplete examples to sample project" />
     <MESSAGE value="Fixed some reference issues with the DI container" />
     <MESSAGE value="Unmark env as final in ObjectGraph" />
@@ -714,7 +654,8 @@
     <MESSAGE value="Updated packages and let user chose to keep body widget from resizing" />
     <MESSAGE value="This can't be null in the graph so check manually before adding the drawer" />
     <MESSAGE value="Updated image picker to upload images and handle loading images from urls" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated image picker to upload images and handle loading images from urls" />
+    <MESSAGE value="Don't add prod dependencies into dev graph so the debug drawer doesn't get overwritten" />
+    <option name="LAST_COMMIT_MESSAGE" value="Don't add prod dependencies into dev graph so the debug drawer doesn't get overwritten" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

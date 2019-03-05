@@ -86,7 +86,7 @@ class DefaultObjectGraph extends ObjectGraph {
       switch (env) {
         case Env.dev:
           await registerCommonDependencies(con);
-          await registerProdDependencies(con);
+          await registerDevDependencies(con);
           break;
         case Env.prod:
           await registerCommonDependencies(con);
