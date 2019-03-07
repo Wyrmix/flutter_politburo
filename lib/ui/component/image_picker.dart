@@ -6,20 +6,19 @@ import 'package:quiver/core.dart';
 import 'package:sealed_unions/sealed_unions.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ImagePicker extends StatefulWidget {
-  final ImagePickerEditingController controller;
-  final ImageUploader uploader;
   final String url;
 
-  ImagePicker(this.controller, this.uploader, {this.url = ''});
+  ImagePicker({this.url = ''});
 
   @override
   _ImagePickerState createState() => _ImagePickerState();
 
   @override
   String toStringShort() {
-    return "${controller.value}";
+    return "$url";
   }
 }
 
@@ -29,7 +28,7 @@ class _ImagePickerState extends State<ImagePicker> {
   @override
   void initState() {
     super.initState();
-    bloc = ImagePickerBloc(widget.uploader);
+    bloc = BlocProvider.of<ImagePickerBloc>(context);
     if (widget.url != null) {
       if (widget.url.isNotEmpty) {
         bloc.dispatch(ImagePickerEvent.success(widget.url));
@@ -87,7 +86,9 @@ class _ImagePickerState extends State<ImagePicker> {
   }
 
   Widget _networkInkwell(String url) {
-    return _imageInkwell(NetworkImage(url));
+    return _imageInkwell(CachedNetworkImageProvider(url,
+        errorListener: () => bloc
+            .dispatch(ImagePickerEvent.failed("Cached image failed to load"))));
   }
 
   Widget _imageInkwell(ImageProvider provider) {
@@ -119,7 +120,6 @@ class _ImagePickerState extends State<ImagePicker> {
       ),
       onTap: () {
         setState(() {
-          widget.controller.value = ImagePickerValue(Optional.absent());
           bloc.dispatch(ImagePickerEvent.cleared());
         });
       },
@@ -266,12 +266,10 @@ class _ImagePickerState extends State<ImagePicker> {
             system.ImagePicker.pickImage(source: system.ImageSource.camera)
                 .then((file) {
               setState(() {
-                widget.controller.value = ImagePickerValue(Optional.of(file));
                 bloc.dispatch(ImagePickerEvent.file(file));
               });
             }).catchError((er) {
               setState(() {
-                widget.controller.value = ImagePickerValue(Optional.absent());
                 bloc.dispatch(ImagePickerEvent.failed(er));
               });
             });
@@ -287,17 +285,14 @@ class _ImagePickerState extends State<ImagePicker> {
               Fimber.d("Picked $file");
               setState(() {
                 if (file == null) {
-                  widget.controller.value = ImagePickerValue(Optional.absent());
                   bloc.dispatch(ImagePickerEvent.cleared());
                 } else {
-                  widget.controller.value = ImagePickerValue(Optional.of(file));
                   bloc.dispatch(ImagePickerEvent.file(file));
                 }
-                Fimber.d("Picked ${widget.controller.value}");
+                Fimber.d("Picked ${bloc.currentState}");
               });
             }).catchError((ex) {
               setState(() {
-                widget.controller.value = ImagePickerValue(Optional.absent());
                 bloc.dispatch(ImagePickerEvent.failed(ex));
               });
             });
@@ -340,18 +335,6 @@ class ImagePickerDialogItem extends StatelessWidget {
 
 typedef ImageUploader = Future<Optional<String>> Function(File file);
 
-class ImagePickerEditingController extends ValueNotifier<ImagePickerValue> {
-  ImagePickerEditingController(Optional<File> image)
-      : super(ImagePickerValue(image));
-
-  Optional<File> get image => this.value.file;
-
-  @override
-  String toString() {
-    return "ImagePickerEditingController($image})";
-  }
-}
-
 class ImagePickerValue {
   final Optional<File> file;
 
@@ -360,11 +343,12 @@ class ImagePickerValue {
 
 class ImagePickerBloc extends Bloc<ImagePickerEvent, ImagePickerState> {
   final ImageUploader uploader;
+  ImagePickerState initial;
 
-  ImagePickerBloc(this.uploader);
+  ImagePickerBloc(this.uploader, {this.initial});
 
   @override
-  ImagePickerState get initialState => ImagePickerState.empty();
+  ImagePickerState get initialState => this.initial ?? ImagePickerState.empty();
 
   @override
   Stream<ImagePickerState> mapEventToState(
@@ -398,7 +382,8 @@ class ImagePickerBloc extends Bloc<ImagePickerEvent, ImagePickerState> {
 
   ImagePickerState _filePicked(ImagePickerState currentState, File file) {
     uploader(file)
-        .then((o) => o.ifPresent((s) => this.dispatch(ImagePickerEvent.success(s))))
+        .then((o) =>
+            o.ifPresent((s) => this.dispatch(ImagePickerEvent.success(s))))
         .catchError((e) => this.dispatch(ImagePickerEvent.failed(e)));
 
     this.dispatch(ImagePickerEvent.upload());

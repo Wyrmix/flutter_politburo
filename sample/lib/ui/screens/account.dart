@@ -1,17 +1,19 @@
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:card_settings/card_settings.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_politburo/ui/component/di_widget.dart';
 import 'package:flutter_politburo/ui/component/image_picker.dart';
-import 'package:flutter_politburo/ui/component/incubating.dart';
+import 'package:flutter_politburo/ui/component/photo_viewer.dart';
 import 'package:flutter_politburo/ui/scaffold/debug_drawer_scaffold_factory.dart';
 import 'package:quiver/core.dart';
 import 'package:sample/ui/profile/profile_vm.dart';
 import 'package:scaffold_factory/scaffold_factory.dart';
 import 'package:flutter_politburo/ui/component/card_settings.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 
 class ProfileForm extends StatefulWidget {
   @override
@@ -53,40 +55,81 @@ class _ProfileFormState extends State<ProfileForm> with ContainerConsumer {
 
   @override
   Widget build(BuildContext context) {
-//    var body = Padding(
-//      padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-//      child: Form(
-//          child: CardSettings(
-//            children: <Widget>[
-//              CardSettingsHeader(label: "Colors", labelAlign: TextAlign.center,),
-//              CardSettingsColorPicker(label: 'Color',),
-//              CardSettingsHeader(label: "Photos", labelAlign: TextAlign.center,),
-//              CardSettingsPhotoPicker(label: 'Images', onChanged: (value) { Fimber.d("$value"); },),
-//            ],
-//          )),
-//    );
+    var photos = [
+      "https://buildagadev.blob.core.windows.net/projects/1/photos/color_Raising_a_Flag_over_the_Reichstag.jpg",
+      "https://buildagadev.blob.core.windows.net/projects/1/photos/Image%20from%20iOS%20(1).jpg",
+      "https://buildagadev.blob.core.windows.net/projects/1/photos/killing_fascist_snake.png",
+      "https://buildagadev.blob.core.windows.net/projects/1/photos/color_Raising_a_Flag_over_the_Reichstag.jpg",
+      "https://buildagadev.blob.core.windows.net/projects/1/photos/Image%20from%20iOS%20(1).jpg",
+      "https://buildagadev.blob.core.windows.net/projects/1/photos/killing_fascist_snake.png",
+      "https://buildagadev.blob.core.windows.net/projects/1/photos/color_Raising_a_Flag_over_the_Reichstag.jpg",
+      "https://buildagadev.blob.core.windows.net/projects/1/photos/Image%20from%20iOS%20(1).jpg",
+      "https://buildagadev.blob.core.windows.net/projects/1/photos/killing_fascist_snake.png",
+    ];
 
-    var body = Center(
-      child: Container(
-        child: ConstrainedBox(
-//          constraints: BoxConstraints.loose(Size(250, 250)),
-          constraints: BoxConstraints(
-              minHeight: 96, minWidth: 96, maxHeight: 250, maxWidth: 250),
-          child: ImagePicker(
-            ImagePickerEditingController(Optional.absent()),
-            _upload,
-            url: "https://placekitten.com/800/800",
-          ),
-        ),
+    final children = <Widget>[];
+
+    children.add(CardSettingsHeader(
+      label: 'Photos',
+    ));
+    children.add(ConstrainedBox(
+      constraints: BoxConstraints.tight(Size(250, 250)),
+      child: Swiper(
+        itemBuilder: (BuildContext context, int index) =>
+            CachedNetworkImage(
+                imageUrl: photos[index], fit: BoxFit.cover),
+        itemCount: photos.length,
+        autoplay: true,
+        pagination: SwiperPagination(),
+        control: SwiperControl(color: Colors.white),
+        onTap: (index) {
+          Navigator.of(context).push(
+              MaterialPageRoute<PhotoViewerScreen>(
+                  fullscreenDialog: true,
+                  builder: (context) =>
+                      PhotoViewerScreen(photos[index])));
+        },
+      ),
+    ));
+
+    children.add(CardSettingsHeader(
+      label: 'Upload/Delete',
+    ));
+    var photoWidgets = photos.map((p) => ImagePicker(
+      url: p,
+    ));
+    children.addAll(photoWidgets);
+    children.add(CardSettingsPhotoPicker(_upload));
+
+    var body = Padding(
+      padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+      child: CardSettings(
+        labelAlign: TextAlign.center,
+        shrinkWrap: true,
+        children: children,
       ),
     );
+
+//    var body = Center(
+//      child: Container(
+//        child: ConstrainedBox(
+//          constraints: BoxConstraints(
+//              minHeight: 96, minWidth: 96, maxHeight: 250, maxWidth: 250),
+//          child: ImagePicker(
+//            ImagePickerEditingController(Optional.absent()),
+//            _upload,
+//            url: "https://placekitten.com/800/800",
+//          ),
+//        ),
+//      ),
+//    );
 
     return _scaffoldFactory.build(body);
 //    return IncubatingScreen();
   }
 
   Future<Optional<String>> _upload(File file) async {
-    return Optional.of("https://placekitten.com/1200/1200");
+    return Optional.of("https://buildagadev.blob.core.windows.net/projects/1/photos/killing_fascist_snake.png");
   }
 
   @override
