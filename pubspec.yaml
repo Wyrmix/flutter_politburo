@@ -27,7 +27,7 @@ dependencies:
   flutter_swiper: ^1.1.4
   pinch_zoom_image:
     git:
-      url: git@github.com:kylealanr/pinch_zoom_image.git
+      url: https://github.com/kylealanr/pinch_zoom_image.git
   cached_network_image: ^0.6.2
 
 dev_dependencies:
